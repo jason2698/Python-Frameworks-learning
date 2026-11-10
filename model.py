@@ -1,8 +1,9 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 class Product(BaseModel):
     id : int
-    name : str
+    name : str = Field(min_length=3)
     description : str
-    price : float
+    price : float = Field(gt=0)
     quantity : int
+
